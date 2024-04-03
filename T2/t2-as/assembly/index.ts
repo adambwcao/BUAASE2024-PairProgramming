@@ -15,8 +15,8 @@ export function mancalaResult(flag: i32, seq: i32[], size: i32): i32 {  
       rightId = change(rightId); // 交换回合
       let numGet = chess[posGet]; // 需要投出的棋子数
       chess[posGet] = 0;
-      for(let j: i32 = 0 ; j<numGet ; ++j){ 
-        let posPut = (posGet + j) % 14 + 1;
+      for(let j: i32 = 0, posPut: i32 = posGet+1 ; j<numGet ; ++j, posPut = posPut%14+1){ 
+        // let posPut = (posGet + j) % 14 + 1;
         if((id==1 && posPut==14) || (id==2 && posPut==7)) {
           j--;
           continue;
@@ -29,14 +29,12 @@ export function mancalaResult(flag: i32, seq: i32[], size: i32): i32 {  
             if(chess[posPut] == 0 && chess[14-posPut]>0){
               if(id == 1) {
                 chess[posPut]--;
-                chess[7] += 1;
-                chess[7] += chess[14-posPut];
+                chess[7] += 1 + chess[14-posPut];
                 chess[14-posPut] = 0;
               }
               if(id == 2){
                 chess[posPut]--;
-                chess[14] += 1;
-                chess[14] += chess[14-posPut];
+                chess[14] += 1 + chess[14-posPut];
                 chess[14-posPut] = 0;
               }
             }
@@ -44,6 +42,7 @@ export function mancalaResult(flag: i32, seq: i32[], size: i32): i32 {  
         }
         chess[posPut]++; // 播棋子
       }
+
       if(chess[1]==0 && chess[2]==0 && chess[3]==0 && chess[4]==0 && chess[5]==0 && chess[6]==0) {
         if(i != size-1){
           return 30000+1+i;
@@ -52,6 +51,8 @@ export function mancalaResult(flag: i32, seq: i32[], size: i32): i32 {  
           chess[7] += chess[j];
           chess[j] = 0;
         }
+        // console.log(chess.toString());
+        // return chess[7];
         return 15000+chess[7*flag]-chess[21-7*flag];
       }
       if(chess[8]==0 && chess[9]==0 && chess[10]==0 && chess[11]==0 && chess[12]==0 && chess[13]==0) {

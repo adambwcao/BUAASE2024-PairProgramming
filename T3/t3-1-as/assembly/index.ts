@@ -64,7 +64,7 @@ export function mancalaBoard(flag: i32, seq: i32[], size: i32): i32[] {  
         chess[7] += chess[j];
         chess[j] = 0;
       }
-      result[14] = 200 + chess[14] - chess[7];
+      result[14] = 200 + chess[7] - chess[14];
     }
     else {
       result[14] = rightId;

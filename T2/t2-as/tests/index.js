@@ -1,4 +1,12 @@
 import assert from "assert";
-import { add } from "../build/debug.js";
-assert.strictEqual(add(1, 2), 3);
+import { mancalaResult } from "../build/release.js";
+// import { add } from "../build/debug.js";
+// assert.strictEqual(add(1, 2), 3);
+assert.strictEqual(mancalaResult(1,[13,12],2),20001);
+assert.strictEqual(mancalaResult(1,[15,21,11],3),20008);
+assert.strictEqual(mancalaResult(1,[11,21,12,13,21,14,21,15,21,16],10),14976);
+assert.strictEqual(mancalaResult(2,[21,11,22,23,11,24,11,25,11,26],10),14976);
+assert.strictEqual(mancalaResult(1,[11,21,12,13,21,14,21,15,21,16,22],11),30010);
+assert.strictEqual(mancalaResult(1,[13, 15, 23, 16, 25, 11, 16, 15, 26, 12, 22, 13, 11, 21, 14, 25, 24, 16, 26, 23, 15],21),15012);
+assert.strictEqual(mancalaResult(1,[13, 16, 22, 21, 14, 24, 16, 12, 16, 15, 26, 14, 11, 13, 16, 23, 14, 16, 15, 22, 25, 12, 26, 16, 21, 26, 25, 14, 24, 16, 15, 16, 13, 16, 14, 26, 23, 15, 16, 12, 25, 26, 22, 14, 23, 15, 24, 26, 25, 16, 13, 26],52),15000);
 console.log("ok");

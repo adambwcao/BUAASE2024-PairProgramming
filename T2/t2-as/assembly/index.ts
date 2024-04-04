@@ -48,7 +48,7 @@ export function mancalaResult(flag: i32, seq: i32[], size: i32): i32 {  
           return 30000+1+i;
         }
         for(let j: i32 = 8 ; j<=13 ; ++j) {
-          chess[7] += chess[j];
+          chess[14] += chess[j];
           chess[j] = 0;
         }
         // console.log(chess.toString());
@@ -60,7 +60,7 @@ export function mancalaResult(flag: i32, seq: i32[], size: i32): i32 {  
           return 30000+1+i;
         }
         for(let j: i32 = 1 ; j<=6 ; ++j) {
-          chess[14] += chess[j];
+          chess[7] += chess[j];
           chess[j] = 0;
         }
         return 15000+chess[7*flag]-chess[21-7*flag];

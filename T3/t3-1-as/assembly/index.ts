@@ -52,9 +52,6 @@ export function mancalaBoard(flag: i32, seq: i32[], size: i32): i32[] {  
         chess[posPut]++; // 播棋子
       }
     }
-    for(let k: i32 = 1; k <=14; ++k){
-      result[k-1] = chess[k];
-    }
     if(chess[1]==0 && chess[2]==0 && chess[3]==0 && chess[4]==0 && chess[5]==0 && chess[6]==0) {
       for(let j: i32 = 8 ; j<=13 ; ++j) {
         chess[14] += chess[j];
@@ -71,6 +68,9 @@ export function mancalaBoard(flag: i32, seq: i32[], size: i32): i32[] {  
     }
     else {
       result[14] = rightId;
+    }
+    for(let k: i32 = 1; k <=14; ++k){
+      result[k-1] = chess[k];
     }
     return result;
 }
